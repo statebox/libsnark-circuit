@@ -979,18 +979,12 @@ libsnark/relations/constraint_satisfaction_problems/uscs/uscs.hpp
 -
 
 /home/joshua/gits/libsnark-circuit/src/prime_under_16.cpp
-stdlib.h
--
-iostream
--
 libff/algebra/fields/field_utils.hpp
 /home/joshua/gits/libsnark-circuit/src/libff/algebra/fields/field_utils.hpp
 libsnark/zk_proof_systems/ppzksnark/tbcs_ppzksnark/tbcs_ppzksnark.hpp
 /home/joshua/gits/libsnark-circuit/src/libsnark/zk_proof_systems/ppzksnark/tbcs_ppzksnark/tbcs_ppzksnark.hpp
 libsnark/common/default_types/tbcs_ppzksnark_pp.hpp
 /home/joshua/gits/libsnark-circuit/src/libsnark/common/default_types/tbcs_ppzksnark_pp.hpp
-typeinfo
--
 
 /usr/include/x86_64-linux-gnu/gmp.h
 iosfwd
