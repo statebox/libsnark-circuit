@@ -18,3 +18,4 @@ Then generated a proof using:
 And verified the proof's accuracy. Changing `c2` to `10` caused the proof to be invalid, as expected.
 
 Next I will try to write a boolean circuit.
+
