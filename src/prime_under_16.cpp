@@ -116,9 +116,9 @@ int main()
         g10.output = 14;
         g10.is_circuit_output = false;
 
-    //  13 OR 14
-        g11.left_wire = 13;
-        g11.right_wire = 14;
+    //  14 OR 13
+        g11.left_wire = 14;
+        g11.right_wire = 13;
         g11.type = tbcs_gate_type(7);
         g11.output = 15;
         g11.is_circuit_output = false;
@@ -160,8 +160,8 @@ int main()
     // public input is empty
     tbcs_primary_input pi = {};
 
-    // private input corresponds to 11
-    tbcs_auxiliary_input ai = {1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0}; 
+    // assignment for 13
+    tbcs_auxiliary_input ai = {1,0,1,1,0,0,1,0,1,1,0,0,1,0,1,0}; //13
 
     // generate the proof
     tbcs_ppzksnark_proof<default_tbcs_ppzksnark_pp> proof = tbcs_ppzksnark_prover<default_tbcs_ppzksnark_pp>(keypair.pk, pi, ai);
