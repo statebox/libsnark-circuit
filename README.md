@@ -26,7 +26,7 @@ Unfortunately, libsnark expects the output gates to have output 0. So we will ch
 
 A diagram of our circuit:
 
-<pre>
+```
         w1         w2        w3
          \          |   _____/
           \   ______|__/
@@ -39,18 +39,18 @@ A diagram of our circuit:
                 |
                 w5
                 |
-</pre>
+```
 
 Each of the three input wires (w1, w2, w3), the internal wires (w4), and the output wires (w5) must be correctly assigned in order to satisfy the circuit. There are two correct satisfying assignments:
 
 
-    | w1 | w2 | w3 | w4 | w5 |
-    |:--:|:--:|:--:|:--:|:--:|
-    |  1 |  1 |  0 | 1  |  0 |
-    |  0 |  1 |  1 | 1  |  0 |
+|  w1 |  w2 |  w3 |  w4 |  w5 |
+|:---:|:---:|:---:|:---:|:---:|
+|   1 |   1 |   0 |  1  |   0 |
+|   0 |   1 |   1 |  1  |   0 |
 
 
-The program div\_by\_3.cpp creates this boolean circuit using libsnark and generates proving and verifying keys (the "Trusted Setup") for the circuit.
+The program `div_by_3.cpp` creates this boolean circuit using libsnark and generates proving and verifying keys (the "Trusted Setup") for the circuit.
 
 Then a proof is generated for each of the 32 possible assignments to the circuit and the verifier is run. The verifier rejects all but two of the proofs--the proofs corresponding to the two correct satisfying assignments.
 

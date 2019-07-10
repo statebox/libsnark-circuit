@@ -46,91 +46,91 @@ int main()
     */
 
 
-    //  0 AND 2
-        g1.left_wire = 0;
-        g1.right_wire = 2;
-        g1.type = tbcs_gate_type(1);
-        g1.output = 5;
-        g1.is_circuit_output = false;
+    // 0 AND 2
+    g1.left_wire = 0;
+    g1.right_wire = 2;
+    g1.type = tbcs_gate_type(1);
+    g1.output = 5;
+    g1.is_circuit_output = false;
 
-    //  3 NOR 4
-        g2.left_wire = 3;
-        g2.right_wire = 4;
-        g2.type = tbcs_gate_type(8);
-        g2.output = 6;
-        g2.is_circuit_output = false;
+    // 3 NOR 4
+    g2.left_wire = 3;
+    g2.right_wire = 4;
+    g2.type = tbcs_gate_type(8);
+    g2.output = 6;
+    g2.is_circuit_output = false;
 
-    //  0 AND 1
-        g3.left_wire = 0;
-        g3.right_wire = 1;
-        g3.type = tbcs_gate_type(1);
-        g3.output = 7;
-        g3.is_circuit_output = false;
+    // 0 AND 1
+    g3.left_wire = 0;
+    g3.right_wire = 1;
+    g3.type = tbcs_gate_type(1);
+    g3.output = 7;
+    g3.is_circuit_output = false;
 
-    //  3 AND NOT 4
-        g4.left_wire = 3;
-        g4.right_wire = 4;
-        g4.type = tbcs_gate_type(4);
-        g4.output = 8;
-        g4.is_circuit_output = false;
+    // 3 AND NOT 4
+    g4.left_wire = 3;
+    g4.right_wire = 4;
+    g4.type = tbcs_gate_type(4);
+    g4.output = 8;
+    g4.is_circuit_output = false;
 
-    //  1 AND 4
-        g5.left_wire = 1;
-        g5.right_wire = 4;
-        g5.type = tbcs_gate_type(1);
-        g5.output = 9;
-        g5.is_circuit_output = false;
+    // 1 AND 4
+    g5.left_wire = 1;
+    g5.right_wire = 4;
+    g5.type = tbcs_gate_type(1);
+    g5.output = 9;
+    g5.is_circuit_output = false;
 
-    //  2 XOR 3
-        g6.left_wire = 2;
-        g6.right_wire = 3;
-        g6.type = tbcs_gate_type(6);
-        g6.output = 10;
-        g6.is_circuit_output = false;
+    // 2 XOR 3
+    g6.left_wire = 2;
+    g6.right_wire = 3;
+    g6.type = tbcs_gate_type(6);
+    g6.output = 10;
+    g6.is_circuit_output = false;
 
-    //  5 AND 6
-        g7.left_wire = 5;
-        g7.right_wire = 6;
-        g7.type = tbcs_gate_type(1);
-        g7.output = 11;
-        g7.is_circuit_output = false;
+    // 5 AND 6
+    g7.left_wire = 5;
+    g7.right_wire = 6;
+    g7.type = tbcs_gate_type(1);
+    g7.output = 11;
+    g7.is_circuit_output = false;
 
-    //  7 AND 8
-        g8.left_wire = 7;
-        g8.right_wire = 8;
-        g8.type = tbcs_gate_type(1);
-        g8.output = 12;
-        g8.is_circuit_output = false;
+    // 7 AND 8
+    g8.left_wire = 7;
+    g8.right_wire = 8;
+    g8.type = tbcs_gate_type(1);
+    g8.output = 12;
+    g8.is_circuit_output = false;
 
-    //  9 AND 10
-        g9.left_wire = 9;
-        g9.right_wire = 10;
-        g9.type = tbcs_gate_type(1);
-        g9.output = 13;
-        g9.is_circuit_output = false;
+    // 9 AND 10
+    g9.left_wire = 9;
+    g9.right_wire = 10;
+    g9.type = tbcs_gate_type(1);
+    g9.output = 13;
+    g9.is_circuit_output = false;
 
-    //  11 OR 12
-        g10.left_wire = 11;
-        g10.right_wire = 12;
-        g10.type = tbcs_gate_type(7);
-        g10.output = 14;
-        g10.is_circuit_output = false;
+    // 11 OR 12
+    g10.left_wire = 11;
+    g10.right_wire = 12;
+    g10.type = tbcs_gate_type(7);
+    g10.output = 14;
+    g10.is_circuit_output = false;
 
-    //  13 OR 14
-        g11.left_wire = 13;
-        g11.right_wire = 14;
-        g11.type = tbcs_gate_type(7);
-        g11.output = 15;
-        g11.is_circuit_output = false;
+    // 13 OR 14
+    g11.left_wire = 13;
+    g11.right_wire = 14;
+    g11.type = tbcs_gate_type(7);
+    g11.output = 15;
+    g11.is_circuit_output = false;
 
 
-    //  This functions as a NOT gate ensuring the final output is 0
-    //  0 AND NOT 15
-        g12.left_wire = 0;
-        g12.right_wire = 15;
-        g12.type = tbcs_gate_type(4);
-        g12.output = 16;
-        g12.is_circuit_output = true;
+    // This functions as a NOT gate ensuring the final output is 0
+    // 0 AND NOT 15
+    g12.left_wire = 0;
+    g12.right_wire = 15;
+    g12.type = tbcs_gate_type(4);
+    g12.output = 16;
+    g12.is_circuit_output = true;
 
 
     // To add the gates to our circuit object:
@@ -172,5 +172,4 @@ int main()
     printf("%s\n", verified ? "Proof accepted" : "Proof false");
 
     return 0;
-
 }
