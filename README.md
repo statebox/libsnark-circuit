@@ -2,7 +2,7 @@ This is an implementation and test of two small boolean circuit snarks with libs
 
 ## Introduction
 
-Libsnark can create zkSNARKs from boolean circuits. The boolean circuits used by libsnark are Two Input Boolean Circuits, in which each boolean gate has two inputs. There are 16 such gates. Each gate outputs either 1 or 0 for each of 4 inputs: (0, 0), (1, 0), (0, 1), (1, 1). 
+Libsnark can create zkSNARKs from boolean circuits. The boolean circuits used by libsnark are Two Input Boolean Circuits, in which each boolean gate has two inputs. There are 16 such gates. Each gate outputs either 1 or 0 for each of 4 inputs: (0, 0), (1, 0), (0, 1), (1, 1).
 
 An XOR gate would return 0 1 1 0 respectively on these four inputs. The gates are enumerated by the big-endian base-2 number describing their behavior. So XOR is gate type 6 while NAND is gate type 14.
 
@@ -34,7 +34,7 @@ A diagram of our circuit:
            XOR      /
              \     /
               w4  /
-               \ / 
+               \ /
                NAND
                 |
                 w5
@@ -42,7 +42,7 @@ A diagram of our circuit:
 </pre>
 
 Each of the three input wires (w1, w2, w3), the internal wires (w4), and the output wires (w5) must be correctly assigned in order to satisfy the circuit. There are two correct satisfying assignments:
-    
+
 
     | w1 | w2 | w3 | w4 | w5 |
     |:--:|:--:|:--:|:--:|:--:|
@@ -55,13 +55,3 @@ The program div\_by\_3.cpp creates this boolean circuit using libsnark and gener
 Then a proof is generated for each of the 32 possible assignments to the circuit and the verifier is run. The verifier rejects all but two of the proofs--the proofs corresponding to the two correct satisfying assignments.
 
 ## prime_below_16.cpp
-
-
-
-
-
-
-
-
-
-

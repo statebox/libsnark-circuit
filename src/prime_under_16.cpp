@@ -16,7 +16,7 @@ int main()
     tbcs_circuit prime_under_16;
 
     // This circuit will test whether a 4 bit number is prime.
-    // This will require 12 two-input boolean gates 
+    // This will require 12 two-input boolean gates
     // Each bit is an input to the circuit and we will regard each of them as private.
 
     // Set the circuit size
@@ -37,26 +37,26 @@ int main()
     tbcs_gate g11;
     tbcs_gate g12;
 
-    /* 
-        This circuit was written in the "normal" way, that is, it was written to 
+    /*
+        This circuit was written in the "normal" way, that is, it was written to
         output 1 if the number is prime, and 0 if not. However since libsnark
         expects all circuit outputs to be 0, a NOT gate has been added at the end
         of the circuit.
 
     */
-       
+
 
     //  0 AND 2
         g1.left_wire = 0;
         g1.right_wire = 2;
-        g1.type = tbcs_gate_type(1); 
+        g1.type = tbcs_gate_type(1);
         g1.output = 5;
         g1.is_circuit_output = false;
 
     //  3 NOR 4
         g2.left_wire = 3;
         g2.right_wire = 4;
-        g2.type = tbcs_gate_type(8); 
+        g2.type = tbcs_gate_type(8);
         g2.output = 6;
         g2.is_circuit_output = false;
 
@@ -161,11 +161,11 @@ int main()
     tbcs_primary_input pi = {};
 
     // private input corresponds to 11
-    tbcs_auxiliary_input ai = {1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0}; 
+    tbcs_auxiliary_input ai = {1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,0};
 
     // generate the proof
     tbcs_ppzksnark_proof<default_tbcs_ppzksnark_pp> proof = tbcs_ppzksnark_prover<default_tbcs_ppzksnark_pp>(keypair.pk, pi, ai);
-    
+
     // verify the proof
     bool verified = tbcs_ppzksnark_verifier_strong_IC<default_tbcs_ppzksnark_pp>(keypair.vk, pi, proof);
 
