@@ -22,36 +22,70 @@ This boolean circuit is used to test whether a 3-bit number is divisible by 3. T
 
 By examining the bits of the two target numbers, we can see that the 3-bit numbers that are divisible by 3 are exactly those whose first and third bits are opposites and whose second bit is a 1. We can implement this circuit with just two gates. An XOR gate will return 1 if its two inputs are different, and then we can make sure the output of the XOR and the middle bit are both 1 with AND.
 
+Libsnark regards wire 0 as having the constant value 1.
+
 Unfortunately, libsnark expects the output gates to have output 0. So we will change to a gate that is 0 only if both inputs are 1 (NAND).
 
 A diagram of our circuit:
 
 ```
-        w1         w2        w3
-         \          |   _____/
-          \   ______|__/
-           \ /      |
-           XOR      /
-             \     /
-              w4  /
-               \ /
-               NAND
-                |
-                w5
-                |
+    w0      w1         w2        w3
+             \          |   _____/
+              \   ______|__/
+               \ /      |
+               XOR      /
+                 \     /
+                  w4  /
+                   \ /
+                   NAND
+                    |
+                    w5
+                    |
 ```
 
 Each of the three input wires (w1, w2, w3), the internal wires (w4), and the output wires (w5) must be correctly assigned in order to satisfy the circuit. There are two correct satisfying assignments:
-
 
 |  w1 |  w2 |  w3 |  w4 |  w5 |
 |:---:|:---:|:---:|:---:|:---:|
 |   1 |   1 |   0 |  1  |   0 |
 |   0 |   1 |   1 |  1  |   0 |
 
-
 The program `div_by_3.cpp` creates this boolean circuit using libsnark and generates proving and verifying keys (the "Trusted Setup") for the circuit.
 
 Then a proof is generated for each of the 32 possible assignments to the circuit and the verifier is run. The verifier rejects all but two of the proofs--the proofs corresponding to the two correct satisfying assignments.
 
-## prime_below_16.cpp
+## prime_under_16.cpp
+
+This circuit picks out the 4-bit numbers that are prime: 0100, 1100, 1010, 1110, 1101 and 1011.
+
+This circuit works by using a pair of gates for a pair of primes. 0100 and 1100 are selected by using two gates: Gate 1 is used to show that the second bit is a 1, and Gate 2 shows that both the third and fourth bits are 0. Then an AND gate is used on the outputs of these two gates. In this way we can build a circuit whose first two levels contain nine gates--three for each pair of primes. The three resulting AND gates are then ORed with each other with two OR gates. This circuit will output 1 if the input is prime, but `libsnark` wants circuit output gates to be 0. So we can easily add a NOT gate to accomplish this. This brings the total to twelve gates in all.
+
+I will not show all twelve gates of the circuit, but here are the gates selecting 0100 and 1100:
+
+```
+    w0      w1      w2      w3      w4
+    ||   ___________/       / _______/
+    |\  /                  / /
+    | AND                 NOR
+    |  \                  /
+    |   \_w5__      _w6__/
+    |         \    /
+    |          \  /
+    |           \/
+    \           AND
+     \           \      /
+      \           w11  w12
+       \           \  /
+        \           OR
+         \           \
+          \         w13  w14
+           \          \  /
+            \          OR
+             \          |
+              \        w15
+               \        |
+               X AND NOT Y
+                    |
+                    w16
+                    |
+```
