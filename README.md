@@ -96,38 +96,75 @@ I will not show all twelve gates of the circuit, but here are the gates selectin
                     |
 ```
 
-## Building and compiling
+## Building and running
+
+### Install dependencies
+
+- On Ubuntu 16.04 LTS:
+
+      $ sudo apt-get install build-essential cmake git libgmp3-dev libprocps4-dev python-markdown libboost-all-dev libssl-dev
+
+- On Ubuntu 14.04 LTS:
+
+      $ sudo apt-get install build-essential cmake git libgmp3-dev libprocps3-dev python-markdown libboost-all-dev libssl-dev
+
+- On Fedora 21 through 23:
+
+      $ sudo yum install gcc-c++ cmake make git gmp-devel procps-ng-devel python2-markdown
+
+- On Fedora 20:
+
+      $ sudo yum install gcc-c++ cmake make git gmp-devel procps-ng-devel python-markdown
 
 ### Add libsnark 
 
-`cd depends`
+$ cd depends
 
-`git submodule add https://github.com/scipr-lab/libsnark.git libsnark`
+$ git submodule add https://github.com/scipr-lab/libsnark.git libsnark
 
-`cd ..`
+$ cd ..
 
 ### Fetch all dependencies
 
-`git submodule update --init --recursive`
+$ git submodule update --init --recursive
 
 ### Build
 
-`mkdir build && cd build && cmake ..`
+$ mkdir build && cd build
 
-`make`
+#### Building on Windows using Cygwin
+
+Install Cygwin using the graphical installer, including the g++, libgmp, cmake, and git packages. Then disable the dependencies not easily supported under CygWin, using:
+
+$ cmake -DWITH_PROCPS=OFF ..
+
+$ make
+#### Building on Mac OS X
+
+On Mac OS X, install GMP from MacPorts (port install gmp). Then disable the dependencies not easily supported under OS X, using:
+
+$ cmake -DWITH_PROCPS=OFF ..
+
+$ make
+
+#### Building on Linux
+
+$ cmake ..
+
+$ make
 
 ### Run examples
 
 #### div_by_3
 
-`./src/div_by_3`
+$ ./src/div\_by\_3
 
 This will create and and attempt to verify 32 proofs. Since the output is massive you may want to run this instead:
 
-`./src/div_by_3 | grep "Proof accepted"`
+$ ./src/div\_by\_3 | grep "Proof accepted"
 
 #### prime_under_16
 
-`./src/prime_under_16`
+$./src/prime\_under\_16
 
 
