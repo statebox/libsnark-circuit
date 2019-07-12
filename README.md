@@ -104,6 +104,8 @@ I will not show all twelve gates of the circuit, but here are the gates selectin
 
 `git submodule add https://github.com/scipr-lab/libsnark.git libsnark`
 
+`cd ..`
+
 ### Fetch all dependencies
 
 `git submodule update --init --recursive`
