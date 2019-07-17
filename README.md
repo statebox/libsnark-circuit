@@ -137,12 +137,6 @@ cd ..
 git submodule update --init --recursive
 ```
 
-### Build
-
-```
-mkdir build && cd build
-```
-
 #### Building on Windows using Cygwin
 
 Install Cygwin using the graphical installer, including the g++, libgmp, cmake, and git packages. Then disable the dependencies not easily supported under CygWin, using:
@@ -164,7 +158,7 @@ make
 #### Building on Linux
 
 ```
-cmake ..
+cmake .
 make
 ```
 
@@ -173,17 +167,17 @@ make
 #### div_by_3
 
 ```
-./src/div_by_3
+./bin/div_by_3
 ```
 
 This will create and and attempt to verify 32 proofs. Since the output is massive you may want to run this instead:
 
 ```
-./src/div_by_3 | grep "Proof accepted"
+./bin/div_by_3 | grep "Proof accepted"
 ```
 
 #### prime_under_16
 
 ```
-./src/prime_under_16
+./bin/prime_under_16
 ```

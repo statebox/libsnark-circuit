@@ -26,6 +26,8 @@ set(
   "Override C++ compiler optimization flags"
 )
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
 option(
   MULTICORE
   "Enable parallelized execution, using OpenMP"
