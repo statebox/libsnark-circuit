@@ -70,7 +70,7 @@ int main()
     // 3 AND NOT 4
     g4.left_wire = 3;
     g4.right_wire = 4;
-    g4.type = tbcs_gate_type(4);
+    g4.type = tbcs_gate_type(2);
     g4.output = 8;
     g4.is_circuit_output = false;
 
