@@ -122,7 +122,11 @@ I will not show all twelve gates of the circuit, but here are the gates selectin
   ```
   sudo yum install gcc-c++ cmake make git gmp-devel procps-ng-devel python-markdown
   ```
-
+### Get this repository
+```
+git clone https://github.com/statebox/libsnark-circuit.git
+cd libsnark-circuit
+```
 ### Add libsnark 
 
 ```
@@ -142,7 +146,7 @@ git submodule update --init --recursive
 Install Cygwin using the graphical installer, including the g++, libgmp, cmake, and git packages. Then disable the dependencies not easily supported under CygWin, using:
 
 ```
-cmake -DWITH_PROCPS=OFF ..
+cmake -DWITH_PROCPS=OFF .
 make
 ```
 
@@ -151,7 +155,7 @@ make
 On Mac OS X, install GMP from MacPorts (port install gmp). Then disable the dependencies not easily supported under OS X, using:
 
 ```
-cmake -DWITH_PROCPS=OFF ..
+cmake -DWITH_PROCPS=OFF .
 make
 ```
 
