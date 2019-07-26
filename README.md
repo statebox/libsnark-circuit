@@ -185,3 +185,27 @@ This will create and and attempt to verify 32 proofs. Since the output is massiv
 ```
 ./bin/prime_under_16
 ```
+
+## Use the Docker version
+
+### Get this repository
+```
+git clone https://github.com/statebox/libsnark-circuit.git
+cd libsnark-circuit
+```
+
+### Build with Docker
+```
+docker build . -t libsnark-circuit
+```
+
+### Run examples
+div\_by\_3
+```
+docker run --entrypoint=/libsnark-circuit/build/div_by_3 -t libsnark-circuit
+```
+
+prime\_under\_16
+```
+docker run --entrypoint=/libsnark-circuit/build/prime_under_16 -t libsnark-circuit
+```
