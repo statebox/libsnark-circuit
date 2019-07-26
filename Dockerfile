@@ -8,13 +8,9 @@ RUN apt-get update && \
 
 COPY libsnark-circuit libsnark-circuit
 
-RUN cd libsnark-circuit/depends/ \
+RUN git init \
+    && cd libsnark-circuit/depends/ \
     && git submodule add https://github.com/scipr-lab/libsnark \
     && git submodule update --init --recursive \	
-    && cd .. && mkdir build && cd build \
     && cmake .. \
     && make
-
-RUN ls -al \
-    && cd build && ls -al
-	
