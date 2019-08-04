@@ -202,10 +202,10 @@ docker build . -t libsnark-circuit
 ### Run examples
 div\_by\_3
 ```
-docker run --entrypoint=/libsnark-circuit/build/div_by_3 -t libsnark-circuit
+docker run libsnark-circuit ./libsnark-circuit/build/div_by_3
 ```
 
 prime\_under\_16
 ```
-docker run --entrypoint=/libsnark-circuit/build/prime_under_16 -t libsnark-circuit
+docker run libsnark-circuit ./libsnark-circuit/build/prime_under_16
 ```
