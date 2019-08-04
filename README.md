@@ -209,3 +209,26 @@ prime\_under\_16
 ```
 docker run libsnark-circuit ./libsnark-circuit/build/prime_under_16
 ```
+
+### Build with Nix
+
+Assuming nix is installed: 
+
+```
+git clone -b docker-add-nix https://github.com/statebox/libsnark-circuit
+cd libsnark-circuit
+nix-shell libsnark-circuit.nix
+```
+
+From `nix-shell`:
+```
+libsnark-circuit
+```
+Then you can run `div_by_3`:
+```
+./libsnark-circuit/build/div_by_3
+```
+or `prime_under_16`:
+```
+./libsnark-circuit/build/prime_under_16
+```
