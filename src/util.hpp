@@ -1,6 +1,4 @@
 #include <fstream>
-
-#include "libsnark/zk_proof_systems/ppzksnark/r1cs_ppzksnark/r1cs_ppzksnark.hpp"
 #include "libff/algebra/curves/public_params.hpp"
 
 using namespace libsnark;
