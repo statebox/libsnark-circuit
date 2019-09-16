@@ -2,6 +2,8 @@
 #include "libsnark/zk_proof_systems/ppzksnark/tbcs_ppzksnark/tbcs_ppzksnark.hpp"
 #include "libsnark/common/default_types/tbcs_ppzksnark_pp.hpp"
 
+#include "util.hpp"
+
 using namespace libsnark;
 using namespace std;
 
@@ -170,6 +172,11 @@ int main()
     bool verified = tbcs_ppzksnark_verifier_strong_IC<default_tbcs_ppzksnark_pp>(keypair.vk, pi, proof);
 
     printf("%s\n", verified ? "Proof accepted" : "Proof false");
+
+    const tbcs_ppzksnark_verification_key<default_tbcs_ppzksnark_pp> vk = keypair.vk;
+
+    vk_to_json<default_tbcs_ppzksnark_pp>(vk, "data/vk.json");
+    proof_to_json<default_tbcs_ppzksnark_pp>(proof, "data/proof.json");
 
     return 0;
 }
