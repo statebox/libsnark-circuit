@@ -96,6 +96,8 @@ I will not show all twelve gates of the circuit, but here are the gates selectin
                     |
 ```
 
+This binary will also output the verifying key and proof in json format to `data/vk.json` and `data/proof.json`.
+
 ## Building and running
 
 ### Install dependencies
